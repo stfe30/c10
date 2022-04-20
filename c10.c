@@ -1,4 +1,6 @@
- int main(void)
+#include <stdlib.h>
+
+int main(void)
  {
      int *a, *b; /* Zeiger auf einen als Ganzzahl interpretierten Speicherbereich */
  

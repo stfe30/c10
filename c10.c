@@ -17,9 +17,8 @@ int main(void)
       * entsteht ein Speicherleck.
       */
  
-     //free(b);    /* Gibt den von b referenzierten Speicher frei */
-     //free(a);    /* Führt zu einem Fehler, da der Bereich, auf den a
-                  * verweist, bereits freigegeben wurde (in der vorherigen Zeile)
-                  */
+     //free(b);    Gibt den von b referenzierten Speicher frei
+     //free(a);    Führt zu einem Fehler, da der Bereich, auf den a verweist, bereits freigegeben wurde (in der vorherigen Zeile)
+                  
      return EXIT_SUCCESS;
  }

@@ -1,3 +1,5 @@
+// TEST-File: Memory Leak
+
 #include <stdlib.h>
 
 int main(void)

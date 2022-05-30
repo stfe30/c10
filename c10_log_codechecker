@@ -1,0 +1,67 @@
+user@notebook:~/c10$ CodeChecker check -b make -o ./reportcc
+[INFO 2022-04-22 13:39] - Starting build...
+[INFO 2022-04-22 13:39] - Using CodeChecker ld-logger.
+gcc -o c10make c10.c
+[INFO 2022-04-22 13:39] - Build finished successfully.
+[INFO 2022-04-22 13:39] - Enabled checkers:
+clangsa: alpha.cplusplus.PlacementNew, core.CallAndMessage, core.DivideZero, core.DynamicTypePropagation, core.NonNullParamChecker, core.NullDereference, core.StackAddressEscape, core.UndefinedBinaryOperatorResult, core.VLASize, core.uninitialized.ArraySubscript, core.uninitialized.Assign, core.uninitialized.Branch, core.uninitialized.CapturedBlockVariable, core.uninitialized.UndefReturn, cplusplus.InnerPointer, cplusplus.Move, cplusplus.NewDelete, cplusplus.NewDeleteLeaks, cplusplus.PureVirtualCall, deadcode.DeadStores, nullability.NullPassedToNonnull, nullability.NullReturnedFromNonnull, optin.cplusplus.UninitializedObject, optin.cplusplus.VirtualCall, optin.portability.UnixAPI, security.FloatLoopCounter, security.insecureAPI.UncheckedReturn, security.insecureAPI.getpw, security.insecureAPI.gets, security.insecureAPI.mkstemp, security.insecureAPI.mktemp, security.insecureAPI.rand, security.insecureAPI.vfork, unix.API, unix.Malloc, unix.MallocSizeof, unix.MismatchedDeallocator, unix.Vfork, unix.cstring.BadSizeArg, unix.cstring.NullArg, valist.CopyToSelf, valist.Uninitialized, valist.Unterminated
+clang-tidy: bugprone-assert-side-effect, bugprone-bool-pointer-implicit-conversion, bugprone-copy-constructor-init, bugprone-dangling-handle, bugprone-dynamic-static-initializers, bugprone-fold-init-type, bugprone-forward-declaration-namespace, bugprone-forwarding-reference-overload, bugprone-inaccurate-erase, bugprone-incorrect-roundings, bugprone-infinite-loop, bugprone-integer-division, bugprone-lambda-function-name, bugprone-macro-repeated-side-effects, bugprone-misplaced-operator-in-strlen-in-alloc, bugprone-misplaced-widening-cast, bugprone-move-forwarding-reference, bugprone-not-null-terminated-result, bugprone-signed-char-misuse, bugprone-sizeof-container, bugprone-sizeof-expression, bugprone-string-constructor, bugprone-string-literal-with-embedded-nul, bugprone-suspicious-enum-usage, bugprone-suspicious-memset-usage, bugprone-suspicious-missing-comma, bugprone-suspicious-semicolon, bugprone-swapped-arguments, bugprone-terminating-continue, bugprone-throw-keyword-missing, bugprone-too-small-loop-variable, bugprone-undefined-memory-manipulation, bugprone-undelegated-constructor, bugprone-unused-raii, bugprone-unused-return-value, bugprone-use-after-move, bugprone-virtual-near-miss, cert-dcl54-cpp, cert-dcl58-cpp, cert-dcl59-cpp, cert-err09-cpp, cert-fio38-c, cert-mem57-cpp, cert-oop11-cpp, cert-oop58-cpp, cert-pos44-c, cppcoreguidelines-special-member-functions, google-build-namespaces, google-global-names-in-headers, misc-definitions-in-headers, misc-misplaced-const, misc-redundant-expression, misc-unconventional-assign-operator, misc-uniqueptr-reset-release, performance-inefficient-algorithm, performance-move-const-arg, performance-move-constructor-init, performance-no-automatic-move, performance-noexcept-move-constructor, performance-trivially-destructible
+[INFO 2022-04-22 13:39] - Starting static analysis ...
+[INFO 2022-04-22 13:39] - [1/2] clang-tidy analyzed c10.c successfully.
+[INFO 2022-04-22 13:39] - [2/2] clangsa analyzed c10.c successfully.
+[INFO 2022-04-22 13:39] - ----==== Summary ====----
+[INFO 2022-04-22 13:39] - Successfully analyzed
+[INFO 2022-04-22 13:39] -   clangsa: 1
+[INFO 2022-04-22 13:39] -   clang-tidy: 1
+[INFO 2022-04-22 13:39] - Total analyzed compilation commands: 1
+[INFO 2022-04-22 13:39] - ----=================----
+[INFO 2022-04-22 13:39] - Analysis finished.
+[INFO 2022-04-22 13:39] - To view results in the terminal use the "CodeChecker parse" command.
+[INFO 2022-04-22 13:39] - To store results use the "CodeChecker store" command.
+[INFO 2022-04-22 13:39] - See --help and the user guide for further options about parsing and storing the reports.
+[INFO 2022-04-22 13:39] - ----=================----
+[INFO 2022-04-22 13:39] - Analysis length: 0.05332231521606445 sec.
+[LOW] /home/user/c10/c10.c:13:7: Value stored to 'a' is never read [deadcode.DeadStores]
+      a = b;     /* Weist dem Zeiger a das Ziel des Zeigers b zu. */
+      ^
+
+[MEDIUM] /home/user/c10/c10.c:23:6: Potential leak of memory pointed to by 'a' [unix.Malloc]
+     return EXIT_SUCCESS;
+     ^
+
+Found 2 defect(s) in c10.c
+
+
+----==== Severity Statistics ====----
+----------------------------
+Severity | Number of reports
+----------------------------
+LOW      |                 1
+MEDIUM   |                 1
+----------------------------
+----=================----
+
+----==== Checker Statistics ====----
+--------------------------------------------------
+Checker name        | Severity | Number of reports
+--------------------------------------------------
+deadcode.DeadStores | LOW      |                 1
+unix.Malloc         | MEDIUM   |                 1
+--------------------------------------------------
+----=================----
+
+----==== File Statistics ====----
+-----------------------------
+File name | Number of reports
+-----------------------------
+c10.c     |                 2
+-----------------------------
+----=================----
+
+----======== Summary ========----
+---------------------------------------------
+Number of processed analyzer result files | 2
+Number of analyzer reports                | 2
+---------------------------------------------
+----=================----
+

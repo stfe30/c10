@@ -1,0 +1,25 @@
+user@notebook:~/c10$ cpplint c10.c
+c10.c:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
+c10.c:4:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+c10.c:4:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
+c10.c:5:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+c10.c:6:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+c10.c:6:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+c10.c:8:  Missing spaces around =  [whitespace/operators] [4]
+c10.c:9:  Missing spaces around =  [whitespace/operators] [4]
+c10.c:10:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+c10.c:10:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+c10.c:11:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+c10.c:12:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+c10.c:14:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+c10.c:14:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+c10.c:19:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+c10.c:19:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+c10.c:20:  Should have a space between // and comment  [whitespace/comments] [4]
+c10.c:21:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+c10.c:21:  Should have a space between // and comment  [whitespace/comments] [4]
+c10.c:22:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+c10.c:24:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Done processing c10.c
+Total errors found: 21
+

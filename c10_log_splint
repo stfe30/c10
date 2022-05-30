@@ -1,0 +1,25 @@
+user@notebook:~/c10$ splint c10.c
+Splint 3.1.2 --- 20 Feb 2018
+
+c10.c: (in function main)
+c10.c:11:7: Dereference of possibly null pointer a: *a
+  A possibly null pointer is dereferenced.  Value is either the result of a
+  function which may return null (in which case, code should check it is not
+  null), or a global, parameter or structure field declared with the null
+  qualifier. (Use -nullderef to inhibit warning)
+   c10.c:8:8: Storage a may become null
+c10.c:12:7: Dereference of possibly null pointer b: *b
+   c10.c:9:8: Storage b may become null
+c10.c:13:7: Fresh storage a (type int *) not released before assignment: a = b
+  A memory leak has been detected. Storage allocated locally is not released
+  before the last reference to it is lost. (Use -mustfreefresh to inhibit
+  warning)
+   c10.c:8:6: Fresh storage a created
+c10.c:23:26: Owned storage a not released before return
+  A memory leak has been detected. Only-qualified storage is not released
+  before the last reference to it is lost. (Use -mustfreeonly to inhibit
+  warning)
+   c10.c:13:7: Storage a becomes owned
+
+Finished checking --- 4 code warnings
+
